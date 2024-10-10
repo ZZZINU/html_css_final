@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=“UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <title>Final</title>
+  </head>
+
+  <style>
+    .payment-friends-container {
+              font-family: 'Noto Sans KR', sans-serif;
+              background-color: #fff;
+              display: flex;
+              max-width: 480px;
+              width: 100%;
+              padding-bottom: 43px;
+              flex-direction: column;
+              overflow: hidden;
+              align-items: center;
+              margin: 0 auto;
+            }
+            .header-image {
+              aspect-ratio: 8.7;
+              object-fit: contain;
+              object-position: center;
+              width: 375px;
+            }
+            .content-wrapper {
+              display: flex;
+              justify-self: center
+              margin-top: 8px;
+              width: 100%;
+              flex-direction: column;
+              align-items: center;
+            }
+            .top-bar {
+              align-self: center;
+              display: flex;
+              width: 334px;
+              max-width: 100%;
+              align-items: center;
+              gap: 20px;
+              justify-content: space-between;
+            }
+            .back-button {
+              aspect-ratio: 1;
+              object-fit: contain;
+              object-position: center;
+              width: 24px;
+              align-self: stretch;
+              margin: auto 0;
+            }
+            .page-title {
+              color: #000;
+              text-transform: capitalize;
+              align-self: stretch;
+              font: 700 20px 'Noto Sans KR', sans-serif;
+            }
+            .action-buttons {
+              align-self: stretch;
+              display: flex;
+              gap: 10px;
+              margin: auto 0;
+            }
+            .action-icon {
+              aspect-ratio: 1;
+              object-fit: contain;
+              object-position: center;
+              width: 24px;
+
+              &:hover {
+                background-image: url('./img/Icon_friend_active.png');
+              }
+            }
+            .search-section {
+              display: flex;
+              margin-top: 13px;
+              flex-direction: column;
+              font-family: 'Noto Sans KR', sans-serif;
+              text-transform: capitalize;
+            }
+            .search-bar {
+              display: flex;
+              position: relative;
+              justify-content: center;
+
+            }
+            .search-placeholder {
+              font-size: 12px;
+              color: #366dff;
+              font-weight: 500;
+              border: none;
+              background-color: #ebf0ff;
+
+              border-radius: 10px;
+              background-color: #ebf0ff;
+              display: flex;
+              gap: 20px;
+              justify-content: space-between;
+              padding: 12px 30px 12px 15px;
+              align-self: center;
+              width: 289px;
+              max-width: 100%;
+            }
+            .search-icon {
+              aspect-ratio: 1;
+              object-fit: contain;
+              object-position: center;
+              width: 17px;
+              position: absolute;
+              right: 12px;
+              top: 12px;
+            }
+            .tab-section {
+              display: flex;
+              margin-top: 13px;
+              width: 100%;
+              flex-direction: column;
+              align-items: center;
+            }
+            .tab-container {
+              border-radius: 0;
+              display: flex;
+              width: 375px;
+              /* width: 100%; */
+              flex-direction: column;
+              font-size: 12px;
+              white-space: nowrap;
+            }
+            .tab-buttons {
+              align-self: center;
+              display: flex;
+              width: 210px;
+              max-width: 100%;
+              gap: 20px;
+              justify-content: space-between;
+            }
+            .tab-active {
+              color: #366dff;
+              font-weight: 700;
+              border: none;
+              background-color: white;
+              cursor: pointer;
+            }
+            .tab-inactive {
+              color: #949494;
+              font-weight: 500;
+              border: none;
+              background-color: white;
+              cursor: pointer;
+
+              &:hover {
+                color: #366dff;
+                font-weight: 700;
+              }
+            }
+            .tab-indicator {
+              object-fit: contain;
+              object-position: center;
+              width: 100%;
+              border-radius: 0;
+              margin: 16px 0 0 -4px;
+            }
+            .friends-list {
+              display: flex;
+              margin-top: 24px;
+              width: 311px;
+              max-width: 100%;
+              flex-direction: column;
+              font-weight: 500;
+              padding-left: 0px;
+            }
+            .friend-item {
+              display: flex;
+              width: 100%;
+              max-width: 311px;
+              gap: 20px;
+              justify-content: space-between;
+              margin-bottom: 24px;
+            }
+            .friend-info {
+              display: flex;
+              gap: 8px;
+            }
+            .friend-avatar {
+              aspect-ratio: 1;
+              object-fit: contain;
+              object-position: center;
+              width: 28px;
+              margin: auto 0;
+            }
+            .friend-details {
+              display: flex;
+              flex-direction: column;
+            }
+            .friend-name {
+              color: #000;
+              font-size: 12px;
+              align-self: start;
+            }
+            .friend-description {
+              color: #949494;
+              font-size: 12px;
+              margin-top: 4px;
+              font-weight: 400;
+            }
+            .friend-select {
+              border-radius: 4px;
+              background-color: #ebf0ff;
+              display: flex;
+              width: 25px;
+              height: 25px;
+              margin: auto 0;
+              cursor: pointer;
+              appearance: none;
+              &:hover {
+                background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/bff6e758ca0d480a80ac0bd3c86a6f321f6ca3e19c721fc1b2a9453370189cad?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5');
+              }
+            }
+
+            .friend-select:checked {
+              border-radius: 4px;
+              display: flex;
+              width: 25px;
+              height: 25px;
+              margin: auto 0;
+              cursor: pointer;
+                background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/bff6e758ca0d480a80ac0bd3c86a6f321f6ca3e19c721fc1b2a9453370189cad?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5');
+            }
+
+            .friend-selected {
+              aspect-ratio: 1.04;
+              object-fit: contain;
+              object-position: center;
+              width: 25px;
+              margin: auto 0;
+              cursor: pointer;
+            }
+            .bottom-section {
+              align-self: center;
+              display: flex;
+              margin-top: 100px;
+              width: 311px;
+              max-width: 100%;
+              flex-direction: column;
+              font-family: 'Noto Sans KR', sans-serif;
+              font-weight: 700;
+              white-space: nowrap;
+              text-transform: capitalize;
+            }
+            .selected-friends {
+              align-self: start;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              font-size: 12px;
+              color: #366dff;
+            }
+            .friend-tag {
+              display: flex;
+              position: relative;
+              justify-content: center;
+              align-items: center;
+              border-radius: 12px;
+              background-color: #ebf0ff;
+              padding: 5px 13px;
+            }
+            .next-button {
+              border-radius: 10px;
+              background-color: #366dff;
+              padding: 13px 31px;
+              color: #fff;
+              font-size: 16px;
+              text-align: center;
+              margin-top: 17px;
+              cursor: pointer;
+              border: none;
+              &:hover {
+                background-color: #8dacff;
+              }
+            }
+
+    .action-icon1 {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .icon-image1 {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0s ease;
+    }
+
+    .action-icon2 {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .icon-image2 {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0s ease;
+    }
+
+    .action-icon1:hover .icon-image {
+      opacity: 0;
+    }
+
+    .action-icon1:hover {
+      background-image: url('./img/Icon_friend_active.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .action-icon2:hover .icon-image {
+      opacity: 0;
+    }
+
+    .action-icon2:hover {
+      background-image: url('./img/Icon_menu_active.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .remove-icon {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width:15px;
+    }
+  </style>
+  <body>
+    <section class="payment-friends-container">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5f5c97a5e808ee307fa4b002d336f08f924ee4062096ec0bb7120f238afb49f8?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+        alt=""
+        class="header-image"
+      />
+      <div class="content-wrapper">
+        <header class="top-bar">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6729fcc111db6dede4121032c5d2ca7c130a8968b7c772b08f11ea650d74be72?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+            alt="Go back"
+            class="back-button"
+            style="cursor: pointer"
+          />
+          <h1 class="page-title">다함께 결제</h1>
+
+          <div class="action-buttons">
+            <div class="action-icon1">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c40e2d7d0838c2a89a1961fcdc9cb33cf19bea0ea68992e8a560895dd8dbb380?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="Action 1"
+                class="icon-image"
+                style="cursor: pointer"
+              />
+            </div>
+            <div class="action-icon2">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9bc3e3bb305e4014566febb8dcb78c0f3b17918aceac86b444696f616c6d2e24?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="Action 2"
+                class="icon-image"
+                style="cursor: pointer"
+              />
+            </div>
+          </div>
+        </header>
+        <div class="search-section">
+          <div class="search-bar">
+            <input
+              type="text"
+              class="search-placeholder"
+              placeholder="이름 / 전화번호 검색"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/320ddfd557ddb236e17f9eb44990c2b7239986a22fb287c5335abef17a66fdb8?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+              alt="Search"
+              class="search-icon"
+              style="cursor: pointer"
+            />
+          </div>
+        </div>
+        <nav class="tab-section">
+          <div class="tab-container">
+            <div class="tab-buttons">
+              <button class="tab-active">친구</button>
+              <button class="tab-inactive">그룹</button>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6223f60d24542785b60c916f79364eb187736a0439791c1a09fcccf6305cc088?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+              alt=""
+              class="tab-indicator"
+            />
+          </div>
+        </nav>
+
+        <ul class="friends-list">
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b57d0e676ba02a84cc1adfcfc9d80fdd094e9e349c22deb70ce59f1f4bfb8223?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="김경훈"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">김경훈</span>
+                <span class="friend-description">프디아 첫 스승님</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a951c4d0e4c9e5ee0c145b4f06b167a5148b1243c05e6f9d09f124b0709bcf3?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="양일교"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">양일교</span>
+                <span class="friend-description">프디아 ESFJ 언니</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a951c4d0e4c9e5ee0c145b4f06b167a5148b1243c05e6f9d09f124b0709bcf3?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="박정근"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">박정근</span>
+                <span class="friend-description">프디아 헬스짱 강사님</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a951c4d0e4c9e5ee0c145b4f06b167a5148b1243c05e6f9d09f124b0709bcf3?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="함건욱"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">함건욱</span>
+                <span class="friend-description">프디아 건욱짱</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a951c4d0e4c9e5ee0c145b4f06b167a5148b1243c05e6f9d09f124b0709bcf3?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="이신광"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">이신광</span>
+                <span class="friend-description">프디아 멘토님</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a951c4d0e4c9e5ee0c145b4f06b167a5148b1243c05e6f9d09f124b0709bcf3?placeholderIfAbsent=true&apiKey=7ec54a98bfa6499cb8a3f209599c61f5"
+                alt="김서현"
+                class="friend-avatar"
+              />
+              <div class="friend-details">
+                <span class="friend-name">김서현</span>
+                <span class="friend-description">프디아 귀요미</span>
+              </div>
+            </div>
+            <input type="checkbox" class="friend-select" />
+          </li>
+        </ul>
+      </div>
+      <footer class="bottom-section">
+        <div class="selected-friends">
+          <span class="friend-tag"
+            >양일교
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e78eb5bc9882d785ac4f5411e3f73aea569dbb6c11d16fb26f5326ea4dad7390?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+              alt="Remove"
+              class="remove-icon"
+              style="cursor: pointer"
+          /></span>
+          <span class="friend-tag"
+            >함건욱
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e78eb5bc9882d785ac4f5411e3f73aea569dbb6c11d16fb26f5326ea4dad7390?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+              alt="Remove"
+              class="remove-icon"
+              style="cursor: pointer"
+          /></span>
+        </div>
+        <button class="next-button">다음</button>
+      </footer>
+    </section>
+  </body>
+</html>

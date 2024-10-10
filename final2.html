@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=“UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <title>Final</title>
+
+    <style>
+      .payment-settlement-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 480px;
+        width: 100%;
+        padding-bottom: 43px;
+        margin: 0 auto;
+        font-family: 'Noto Sans KR', sans-serif;
+        text-transform: capitalize;
+        background-color: #fff;
+        overflow: hidden;
+      }
+
+      .header-image {
+        width: 375px;
+        aspect-ratio: 8.7;
+        object-fit: contain;
+      }
+
+      .main-content {
+        /* margin-top: 7px; */
+      }
+
+      .title-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        line-height: 0px;
+      }
+
+      .back-icon {
+        width: 24px;
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        cursor: pointer;
+      }
+
+      .tab-container {
+        margin-top: 33px;
+        font-size: 12px;
+      }
+
+      .tab-options {
+        display: flex;
+        justify-content: space-between;
+        width: 233px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .tab-active {
+        color: #366dff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .tab-inactive {
+        color: #949494;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+          color: #366dff;
+          font-weight: 700;
+        }
+      }
+
+      .tab-indicator {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .input-section {
+        width: 311px;
+        max-width: 100%;
+        margin: 42px auto 0;
+      }
+
+      .amount-input {
+        color: #949494;
+      }
+
+      .amount-label {
+        font-size: 24px;
+        font-weight: 700;
+        border: none;
+        width: 291px;
+        padding: 10px;
+        color: #366dff;
+      }
+
+      .amount-underline {
+        /* height: 2px; */
+        border: 1px solid #949494;
+      }
+
+      .amount-hint {
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+
+      .payer-section {
+        margin-top: 20px;
+        font-weight: 700;
+      }
+
+      .payer-label {
+        color: #949494;
+        font-size: 12px;
+      }
+
+      .payer-info {
+        display: flex;
+        gap: 13px;
+        margin-top: 21px;
+        font-size: 16px;
+        color: #000;
+      }
+
+      .avatar {
+        width: 29px;
+        aspect-ratio: 1.04;
+        object-fit: contain;
+      }
+
+      .friends-section {
+        margin-top: 33px;
+      }
+
+      .friends-header {
+        display: flex;
+        gap: 5px;
+        font-size: 12px;
+        color: #949494;
+      }
+
+      .friends-count {
+        color: #366dff;
+      }
+
+      .friends-underline {
+        height: 1px;
+        width: 45px;
+        background-color: #949494;
+      }
+
+      .friend-item {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 28px;
+        font-size: 16px;
+        color: #000;
+      }
+
+      .friend-info {
+        display: flex;
+        gap: 13px;
+        font-weight: 700;
+      }
+
+      .remove-icon {
+        width: 21px;
+        aspect-ratio: 1;
+      }
+
+      .next-button {
+        width: 311px;
+        margin: 219px;
+        padding: 13px 31px;
+        border-radius: 10px;
+        background-color: #366dff;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: #8dacff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="payment-settlement-container">
+      <header>
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/32145b12686d9ce2df245d75c04574df393531c374224e0f1012b1bca1b11f4c?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+          alt=""
+          class="header-image"
+        />
+      </header>
+
+      <main class="main-content">
+        <div class="title-container">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6729fcc111db6dede4121032c5d2ca7c130a8968b7c772b08f11ea650d74be72?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+            alt="Back"
+            class="back-icon"
+          />
+          <h1 class="title">정산하기</h1>
+        </div>
+
+        <nav class="tab-container">
+          <div class="tab-options">
+            <span class="tab-active">1/N 하기</span>
+            <span class="tab-inactive">직접 입력</span>
+          </div>
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3eee8195d30cee5538c1fe23abe4e01630177cd6be1e09bb87826d4fb1a2c632?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+            alt=""
+            class="tab-indicator"
+          />
+        </nav>
+
+        <form class="input-section">
+          <div class="amount-input">
+            <input
+              type="text"
+              id="amountInput"
+              class="amount-label"
+              placeholder="금액입력(원)"
+            />
+            <div class="amount-underline"></div>
+            <p class="amount-hint">최대 500만원까지 입력 가능</p>
+          </div>
+
+          <div class="payer-section">
+            <p class="payer-label">대표 결제자</p>
+            <div class="payer-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad7f3cfce1204e636c894ed115b4b38c5ea51e63d4be9be7ccca74b4fcd9cdd3?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+                alt=""
+                class="avatar"
+              />
+              <span>이유진</span>
+            </div>
+          </div>
+
+          <div class="friends-section">
+            <div class="friends-header">
+              <span>친구편집</span>
+              <span class="friends-count">2</span>
+            </div>
+            <div class="friends-underline"></div>
+
+            <div class="friend-item">
+              <div class="friend-info">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad7f3cfce1204e636c894ed115b4b38c5ea51e63d4be9be7ccca74b4fcd9cdd3?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+                  alt=""
+                  class="avatar"
+                />
+                <span>양일교</span>
+              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e78eb5bc9882d785ac4f5411e3f73aea569dbb6c11d16fb26f5326ea4dad7390?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+                alt="Remove"
+                class="remove-icon"
+                style="cursor: pointer"
+              />
+            </div>
+
+            <div class="friend-item">
+              <div class="friend-info">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad7f3cfce1204e636c894ed115b4b38c5ea51e63d4be9be7ccca74b4fcd9cdd3?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+                  alt=""
+                  class="avatar"
+                />
+                <span>함건욱</span>
+              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e78eb5bc9882d785ac4f5411e3f73aea569dbb6c11d16fb26f5326ea4dad7390?apiKey=7ec54a98bfa6499cb8a3f209599c61f5&"
+                alt="Remove"
+                class="remove-icon"
+                style="cursor: pointer"
+              />
+            </div>
+          </div>
+        </form>
+
+        <button class="next-button">다음</button>
+      </main>
+    </section>
+  </body>
+</html>
